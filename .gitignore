@@ -1,0 +1,39 @@
+# Maven build directory
+/target/
+!/.mvn/wrapper/maven-wrapper.jar
+
+# TestNG & ExtentReports output
+/test-output/
+
+# IntelliJ IDEA specific files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse specific files
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# NetBeans specific files
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+# VS Code specific files
+.vscode/
+
+# Java bytecode files
+**/*.class
+
+# OS specific ignores
+.DS_Store
+Thumbs.db
