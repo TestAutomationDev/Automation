@@ -63,6 +63,7 @@ public class WebDriverFactory {
         Browser currentBrowser = Browser.valueOf(browser.toUpperCase());
 
         // Switch case to handle different browser types
+
         switch (currentBrowser) {
             case CHROME:
                 driver = new ChromeDriver();
