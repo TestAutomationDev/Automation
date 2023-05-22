@@ -1,11 +1,16 @@
 # Automation Framework using Java, Selenium, TestNG, and Extent Reports
 
+
 ## Overview
 I'm Waruna, and I have created this project as a solution to the problem mentioned in the
 assignment. I have also added a few more additional functionalities to make it robust. This
 framework utilizes Java, Selenium, TestNG, Maven and Extent Reports. Adopting the Page
 Object Model (POM) using PageFactory, it enables efficient design and maintenance of
 automated test scripts.
+
+### Video Preview of Previous Test Execution.
+[![Video Name](https://img.youtube.com/vi/hs-bISfDefo/0.jpg)](https://www.youtube.com/watch?v=hs-bISfDefo)
+
 
 ## Key Features
 
