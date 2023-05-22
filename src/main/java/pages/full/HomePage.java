@@ -1,3 +1,9 @@
+/**
+ * File: HomePage.java
+ * Author: Waruna
+ * Created: 5/22/2023
+ * Description: Home page object.
+ */
 package pages.full;
 
 import org.openqa.selenium.WebDriver;
@@ -10,8 +16,6 @@ public class HomePage extends BasePage {
     @FindBy(css = ".cta-list > a:nth-of-type(2)")
     private WebElement getStartedButton;
 
-
-    // Instance of ModalFormPage as it is a component used in this page.
     private final ModalFormPage modalFormPage;
 
     public HomePage(WebDriver driver) {
@@ -23,12 +27,12 @@ public class HomePage extends BasePage {
         click(getStartedButton);
     }
 
-    public void getTextOnModalForm(){
-        modalFormPage.getTitle();
+    public ModalFormPage getModelForm(){
+        return modalFormPage;
     }
 
     public void clickOnCreateAccountButton(){
-        modalFormPage.openCreateAccountForm();
+        modalFormPage.clickOnCreateAccountButton();
     }
 
 }
