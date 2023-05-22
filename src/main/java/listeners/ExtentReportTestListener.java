@@ -37,9 +37,9 @@ public class ExtentReportTestListener implements ITestListener {
     /**
      * Initializes the extent report and sets up the report path and name.
      * Creates directories if they do not exist.
-     *
-     * @param context Test context
      */
+    private ExtentTest parentTest;
+
     public void onStart(ITestContext context) {
 
         String date = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy_MM_dd"));
@@ -51,18 +51,17 @@ public class ExtentReportTestListener implements ITestListener {
         System.out.println("Report path: " + reportPath);
         try {
             Path path = Paths.get(reportPath);
-            // Create directories if they do not exist
+
             if (!Files.exists(path)) {
                 Files.createDirectories(path);
             }
             extent = ExtentReportManager.getReporter(reportPath + "/" + reportName);
 
-            // Add suite name as a parent test
-            ExtentTest parent = extent.createTest(suiteName);
-            extentTest.set(parent);
+            parentTest = extent.createTest(suiteName);
         } catch (IOException e) {
             System.out.println("Error creating report directories: " + e.getMessage());
         }
+
     }
 
     /**
@@ -72,8 +71,7 @@ public class ExtentReportTestListener implements ITestListener {
      */
     @Override
     public void onTestStart(ITestResult result) {
-        // Add each test method as a node of the parent test
-        ExtentTest test = extentTest.get().createNode(result.getMethod().getMethodName());
+        ExtentTest test = parentTest.createNode(result.getMethod().getMethodName());
         test.getModel().setStartTime(getTime(result.getStartMillis()));
         Object[] params = result.getParameters();
         String browserInfo = "";
@@ -104,7 +102,7 @@ public class ExtentReportTestListener implements ITestListener {
     public void onTestFailure(ITestResult result) {
         extentTest.get().getModel().setEndTime(getTime(result.getEndMillis()));
         WebDriver driver = WebDriverFactory.getWebDriver();
-        String screenshotPath = captureScreenShot(driver, result, "fail");
+        String screenshotPath = captureScreenShot(driver, result);
         extentTest.get().addScreenCaptureFromPath(screenshotPath);
         extentTest.get().log(Status.FAIL, "Test Failed: " + result.getThrowable());
     }
@@ -145,15 +143,14 @@ public class ExtentReportTestListener implements ITestListener {
      *
      * @param driver WebDriver instance
      * @param result Test result
-     * @param status Test status (pass or fail)
      * @return Screenshot file path
      */
-    private String captureScreenShot(WebDriver driver, ITestResult result, String status) {
+    private String captureScreenShot(WebDriver driver, ITestResult result) {
         String dest = "";
         try {
             TakesScreenshot ts = (TakesScreenshot) driver;
             File source = ts.getScreenshotAs(OutputType.FILE);
-            String directoryPath = System.getProperty("user.dir") + "/test-output/ScreenShots/" + status + "/" + LocalDate.now();
+            String directoryPath = System.getProperty("user.dir") + "/test-output/ScreenShots/" + "fail" + "/" + LocalDate.now();
             File directory = new File(directoryPath);
             if (!directory.exists()) {
                 directory.mkdirs();
