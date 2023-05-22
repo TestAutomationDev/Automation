@@ -1,0 +1,104 @@
+{
+  "countries": [
+    {
+      "name": "United States",
+      "marketingPreference": false,
+      "otherOptions": false
+    },
+    {
+      "name": "United Kingdom",
+      "marketingPreference": false,
+      "otherOptions": false
+    },
+    {
+      "name": "Czech Republic",
+      "marketingPreference": false,
+      "otherOptions": false
+    },
+    {
+      "name": "Russian Federation",
+      "marketingPreference": false,
+      "otherOptions": true
+    },
+    {
+      "name": "Australia",
+      "marketingPreference": false,
+      "otherOptions": false
+    },
+    {
+      "name": "China",
+      "marketingPreference": false,
+      "otherOptions": false
+    },
+    {
+      "name": "Brazil",
+      "marketingPreference": false,
+      "otherOptions": false
+    },
+    {
+      "name": "South Africa",
+      "marketingPreference": false,
+      "otherOptions": false
+    },
+    {
+      "name": "Saudi Arabia",
+      "marketingPreference": false,
+      "otherOptions": false
+    },
+    {
+      "name": "Egypt",
+      "marketingPreference": false,
+      "otherOptions": false
+    },
+    {
+      "name": "India",
+      "marketingPreference": false,
+      "otherOptions": false
+    },
+    {
+      "name": "Japan",
+      "marketingPreference": false,
+      "otherOptions": false
+    },
+    {
+      "name": "Mexico",
+      "marketingPreference": false,
+      "otherOptions": false
+    },
+    {
+      "name": "Nigeria",
+      "marketingPreference": false,
+      "otherOptions": false
+    },
+    {
+      "name": "Canada",
+      "marketingPreference": false,
+      "otherOptions": false
+    },
+    {
+      "name": "Argentina",
+      "marketingPreference": false,
+      "otherOptions": false
+    },
+    {
+      "name": "Kenya",
+      "marketingPreference": false,
+      "otherOptions": false
+    },
+    {
+      "name": "France",
+      "marketingPreference": false,
+      "otherOptions": false
+    },
+    {
+      "name": "Germany",
+      "marketingPreference": true,
+      "otherOptions": false
+    },
+    {
+      "name": "Singapore",
+      "marketingPreference": false,
+      "otherOptions": false
+    }
+  ]
+}
