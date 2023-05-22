@@ -15,7 +15,7 @@ import java.util.Properties;
 public class PropertyReader {
 
     private static Properties properties = null;
-    private static final String filePath = "src/test/resources/validations/applicationErrorMessages.properties";
+    private static final String filePath = "src/test/resources/propertyFiles/applicationData.properties";
 
     private PropertyReader() {
         // private to prevent instantiation
