@@ -14,9 +14,14 @@ import java.util.Properties;
 
 public class PropertyReader {
 
-    private static Properties properties;
+    private static Properties properties = null;
+    private static final String filePath = "src/test/resources/validations/applicationErrorMessages.properties";
 
-    public PropertyReader(String filePath) {
+    private PropertyReader() {
+        // private to prevent instantiation
+    }
+
+    private static void initializeProperties() {
         properties = new Properties();
         try (InputStream input = new FileInputStream(filePath)) {
             properties.load(input);
@@ -26,6 +31,9 @@ public class PropertyReader {
     }
 
     public static String getPropertyByKey(String key) {
+        if (properties == null) {
+            initializeProperties();
+        }
         return properties.getProperty(key);
     }
 }
