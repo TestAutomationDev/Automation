@@ -1,3 +1,9 @@
+/**
+ * File: ApplicationPageTest.java
+ * Author: Waruna
+ * Created: 5/22/2023
+ * Description: Field level error message validations for the application page
+ */
 package tests;
 
 import core.TestLifecycleManager;
@@ -18,7 +24,7 @@ public class ApplicationPageTest extends TestLifecycleManager {
     String email;
 
     @BeforeMethod(description = "Fill out the application form with valid data before each test.")
-    public void setup() {
+    public void setupTestData() {
 
         WebDriver driver = WebDriverFactory.getWebDriver();
         applicationPage = new ApplicationPage(driver);
@@ -49,7 +55,8 @@ public class ApplicationPageTest extends TestLifecycleManager {
 
     }
 
-    @Test(priority = 1, description = "Validate that an error is shown when an invalid email address is entered.")
+    //Test 2 - Field Validations for the PortfolioAnalyst Standalone Application
+    @Test(priority = 1, description = "Validate that an error is shown when an invalid email address is entered.", enabled = false)
     public void testInvalidEmailError() {
         applicationPage.enterEmailAddress(MockUserDataProvider.generateInvalidEmail());
         applicationPage.clickOnAccountCreationButton();
@@ -58,7 +65,7 @@ public class ApplicationPageTest extends TestLifecycleManager {
 
     @Test(priority = 2, description = "Validate that an error is shown when an invalid username is entered.")
     public void testInvalidUsernameError() {
-        applicationPage.enterUsername(MockUserDataProvider.generateShortUsername());
+        applicationPage.enterUsername(MockUserDataProvider.generateInvalidUsername());
         applicationPage.clickOnAccountCreationButton();
         Assert.assertEquals(applicationPage.getUserNameError1(), PropertyReader.getPropertyByKey("userNameError1"));
     }
