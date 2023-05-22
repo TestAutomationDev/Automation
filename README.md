@@ -66,14 +66,16 @@ Ensure that you have the required Java & Maven version installed and properly se
 system.
 
 ### Clone the Git Repo
+``` 
 git clone https://github.com/TestAutomationDev/Automation.git
-
+```
 ### Build and Execute Tests
 Navigate to the project directory and execute the following Maven command to build and
+execute the tests:
 
-### execute the tests:
-
+``` 
 mvn test
+```
 
 ### Test Reports
 The test report will be generated under test-output/reports/Test_Reports_[Current Date].
