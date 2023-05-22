@@ -7,12 +7,17 @@
 package pages.full;
 
 
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.PropertyReader;
+
 
 import java.time.Duration;
 
@@ -38,22 +43,24 @@ public abstract class BasePage {
     }
 
     public void click(WebElement element) {
-        waitForVisibilityAndClickable(element);
-        element.click();
+
+        try {
+            waitForVisibilityAndClickable(element);
+            element.click();
+        } catch (ElementClickInterceptedException e) {
+            Actions actions = new Actions(driver);
+            actions.moveToElement(element).click().perform();
+        }
+
     }
 
     public String getText(WebElement element) {
+        scrollIntoView(element);
         wait.until(ExpectedConditions.visibilityOf(element));
         return element.getText();
     }
 
-    public boolean isElementDisplayed(WebElement element) {
-        wait.until(ExpectedConditions.visibilityOf(element));
-        return element.isDisplayed();
-    }
-
     public void selectDropdownByValue(WebElement dropdown, String value) {
-        waitForVisibilityAndClickable(dropdown);
         Select select = new Select(dropdown);
         select.selectByValue(value);
     }
@@ -72,5 +79,11 @@ public abstract class BasePage {
         wait.until(ExpectedConditions.visibilityOf(element));
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
+
+    public void scrollIntoView(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
 
 }
