@@ -174,6 +174,10 @@ public class ApplicationPage extends BasePage {
     @FindBy(css = "#applicationForm > section > div > div.row > div.col-12.col-lg-6.start-right > div.alert.alert-danger")
     private WebElement termsAndConditionsError;
 
+    @FindBy(css = " #applicationForm > section > div > div:nth-child(1) > div > h2 > strong")
+    private WebElement confirmYourEmailMessage;
+
+
     public void enterEmailAddress(String emailAddress) {
         enterData(emailAddressField, emailAddress);
     }
@@ -387,6 +391,10 @@ public class ApplicationPage extends BasePage {
 
     public String getTermsAndConditionsError() {
         return getText(termsAndConditionsError);
+    }
+
+    public String getConfirmYourEmailMessage() {
+        return getText(confirmYourEmailMessage);
     }
 
     public void pressUpKeyUntilVisible(WebElement dropdown) {
