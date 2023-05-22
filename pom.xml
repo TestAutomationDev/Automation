@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>org.waruna</groupId>
     <artifactId>Automation</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -25,7 +25,6 @@
             <version>${selenium.version}</version>
         </dependency>
 
-
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -38,13 +37,17 @@
             <version>5.0.6</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.projectlombok</groupId>-->
-<!--            <artifactId>lombok</artifactId>-->
-<!--            <version>${lombok.version}</version>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
-
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
     <build>
@@ -55,13 +58,13 @@
                 <version>${sureFire.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/testng/homePageTests.xml</suiteXmlFile>
-<!--                        <directory>src/test/resources/testng</directory>-->
+                        <suiteXmlFile>src/test/resources/testng/StandaloneApplicationPositiveTestSuite.xml
+                        </suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/testng/StandaloneApplicationNegativeTestSuite.xml
+                        </suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
-
 </project>

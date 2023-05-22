@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Standalone Application Negative Test Suite" verbose="1">
+    <listeners>
+        <listener class-name="listeners.ExtentReportTestListener"/>
+    </listeners>
+
+    <test name="Standalone Application Error message validation">
+        <parameter name="browserName" value="chrome"/>
+        <parameter name="url" value="https://ndcdyn.interactivebrokers.com/Universal/Application?pa=T"/>
+        <parameter name="implicitWait" value="20"/>
+        <parameter name="maxPageLoadTime" value="30"/>
+        <classes>
+            <class name="tests.ApplicationPageTest"/>
+        </classes>
+    </test>
+
+</suite>
